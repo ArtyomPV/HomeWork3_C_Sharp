@@ -23,47 +23,66 @@
 5.  Выводим сообщение о том, что введенное число является палиндромом
 
 */
-int GetNumber()
-{
-    Console.Write("Enter a five-digit number: ");
-    int num = Convert.ToInt32(Console.ReadLine());
-    return num;
-}
 
-void CheckNumberIsPalindrom(int num)
-{
-    if(num<9999 || num>99999) Console.WriteLine("Entered wrong number!");
-    else
-    {
-        int n1 = num/10000;
-        int n5 = num%10;
-        int tempNumber = (num%10000)/10;
-        int n2 = tempNumber/100;
-        int n4 = tempNumber%10;
+// int GetNumber()
+// {
+//     Console.Write("Enter a five-digit number: ");
+//     int num = Convert.ToInt32(Console.ReadLine());
+//     return num;
+// }
+
+// void CheckNumberIsPalindrom(int num)
+// {
+//     if(num<9999 || num>99999) Console.WriteLine("Entered wrong number!");
+//     else
+//     {
+//         int n1 = num/10000;
+//         int n5 = num%10;
+//         int tempNumber = (num%10000)/10;
+//         int n2 = tempNumber/100;
+//         int n4 = tempNumber%10;
         
-        if(n1 != n5) Console.WriteLine($"Entred number {num} is not а palindrome.");
-        else
-        {
-            if(n2 != n4) Console.WriteLine($"Entred number {num} is not а palindrome.");
-            else Console.WriteLine($"Entered number {num} is а palindrome.");
-        }
-    }
-}
+//         if(n1 != n5) Console.WriteLine($"Entred number {num} is not а palindrome.");
+//         else
+//         {
+//             if(n2 != n4) Console.WriteLine($"Entred number {num} is not а palindrome.");
+//             else Console.WriteLine($"Entered number {num} is а palindrome.");
+//         }
+//     }
+// }
 
-int fiveDigitNumber = GetNumber();
-CheckNumberIsPalindrom(fiveDigitNumber);
+// int fiveDigitNumber = GetNumber();
+// CheckNumberIsPalindrom(fiveDigitNumber);
 
 
 //=============== Задача 21. ===========================
 /*
 Напишите программу, которая принимает на вход координаты
-двуч точек и находит расстояние между ними в 3D пространстве
+двух точек и находит расстояние между ними в 3D пространстве
 A(3,6,8);   B(2, 1, -7) -> 15.84
 A(7, -5, 0);B(1, -1, 9) ->11.53
 */
+double CalcDistance(int x1, int y1, int z1, int x2, int y2, int z2)
+{
+    double distance = Math.Sqrt(Math.Pow((x2-x1),2) + Math.Pow((y2-y1),2) + Math.Pow((z2-z1),2));
+    return distance;
+}
 
+Console.Write("Введите координату x1: ");
+int x1 = Convert.ToInt32(Console.ReadLine());
+Console.Write("Введите координату y1: ");
+int y1 = Convert.ToInt32(Console.ReadLine());
+Console.Write("Введите координату z1: ");
+int z1 = Convert.ToInt32(Console.ReadLine());
+Console.Write("Введите координату x2: ");
+int x2 = Convert.ToInt32(Console.ReadLine());
+Console.Write("Введите координату y2: ");
+int y2 = Convert.ToInt32(Console.ReadLine());
+Console.Write("Введите координату z2: ");
+int z2 = Convert.ToInt32(Console.ReadLine());
 
-
+double dis = CalcDistance(x1, y1, z1, x2, y2, z2);
+Console.WriteLine($"distance is {Math.Round(dis, 2)}");
 //=============== Задача 23. ===========================
 /*
 Напищите программу, которая принимает на вход чисо (N) 
