@@ -62,27 +62,29 @@
 A(3,6,8);   B(2, 1, -7) -> 15.84
 A(7, -5, 0);B(1, -1, 9) ->11.53
 */
-double CalcDistance(int x1, int y1, int z1, int x2, int y2, int z2)
-{
-    double distance = Math.Sqrt(Math.Pow((x2-x1),2) + Math.Pow((y2-y1),2) + Math.Pow((z2-z1),2));
-    return distance;
-}
 
-Console.Write("Введите координату x1: ");
-int x1 = Convert.ToInt32(Console.ReadLine());
-Console.Write("Введите координату y1: ");
-int y1 = Convert.ToInt32(Console.ReadLine());
-Console.Write("Введите координату z1: ");
-int z1 = Convert.ToInt32(Console.ReadLine());
-Console.Write("Введите координату x2: ");
-int x2 = Convert.ToInt32(Console.ReadLine());
-Console.Write("Введите координату y2: ");
-int y2 = Convert.ToInt32(Console.ReadLine());
-Console.Write("Введите координату z2: ");
-int z2 = Convert.ToInt32(Console.ReadLine());
+// double CalcDistance(int x1, int y1, int z1, int x2, int y2, int z2)
+// {
+//     double distance = Math.Sqrt(Math.Pow((x2-x1),2) + Math.Pow((y2-y1),2) + Math.Pow((z2-z1),2));
+//     return distance;
+// }
 
-double dis = CalcDistance(x1, y1, z1, x2, y2, z2);
-Console.WriteLine($"distance is {Math.Round(dis, 2)}");
+// Console.Write("Введите координату x1: ");
+// int x1 = Convert.ToInt32(Console.ReadLine());
+// Console.Write("Введите координату y1: ");
+// int y1 = Convert.ToInt32(Console.ReadLine());
+// Console.Write("Введите координату z1: ");
+// int z1 = Convert.ToInt32(Console.ReadLine());
+// Console.Write("Введите координату x2: ");
+// int x2 = Convert.ToInt32(Console.ReadLine());
+// Console.Write("Введите координату y2: ");
+// int y2 = Convert.ToInt32(Console.ReadLine());
+// Console.Write("Введите координату z2: ");
+// int z2 = Convert.ToInt32(Console.ReadLine());
+
+// double dis = CalcDistance(x1, y1, z1, x2, y2, z2);
+// Console.WriteLine($"distance is {Math.Round(dis, 2)}");
+
 //=============== Задача 23. ===========================
 /*
 Напищите программу, которая принимает на вход чисо (N) 
@@ -90,3 +92,38 @@ Console.WriteLine($"distance is {Math.Round(dis, 2)}");
 3-> 1, 8, 27
 5-> 1, 8, 27, 64, 125
 */
+
+/*
+1. Запросить у пользователя, число больше 0
+2. Перебрать все числа от 1 до введеного числа
+3. Каждое число возвести в третью степень
+4. Результат вывести в терминал
+*/
+
+int EnterNumber()
+{
+    Console.Write("Enter any number, more then zero: ");
+    int enteredNumber = Convert.ToInt32(Console.ReadLine());
+    return enteredNumber;
+}
+
+void QubeExponentiation(int number)
+{
+   double num = 0;
+   if(number<1) Console.WriteLine("Entered number, less then 1.");
+   else
+   {
+        for (int i = 1; i <= number; i++)
+        {
+            num = Math.Pow(i, 3);
+            if(i == number) Console.Write($"{num} ");
+            else
+            {
+                Console.Write($"{num}, ");
+            }
+        }
+   }
+}
+
+int number = EnterNumber();
+QubeExponentiation(number);
